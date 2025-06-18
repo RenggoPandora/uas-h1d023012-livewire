@@ -8,14 +8,29 @@
             <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
             <a href="{{ route('dashboard') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>
-                <x-app-logo />
+                <h1 class="text-xl font-bold justify-center align-middle text-zinc-900 dark:text-zinc-50">SISTEM AKADEMIK MAHASISWA</h1>
             </a>
 
             <flux:navlist variant="outline">
-                <flux:navlist.group :heading="__('Platform')" class="grid">
+                <flux:navlist.group :heading="__('Platform')" class="grid gap-1.5 mb-2">
+                     @if(auth()->user()->role === 'admin')
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('fakultas')" :current="request()->routeIs('fakultas')" wire:navigate>{{ __('Fakultas') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('prodi')" :current="request()->routeIs('prodi')" wire:navigate>{{ __('Prodi') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('matakuliah')" :current="request()->routeIs('Mata Kuliah')" wire:navigate>{{ __('Mata Kuliah') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('mahasiswa')" :current="request()->routeIs('mahasiswa')" wire:navigate>{{ __('Mahasiswa') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('krs')" :current="request()->routeIs('krs')" wire:navigate>{{ __('KRS') }}</flux:navlist.item>
+                     @endif
+
+                     @if(auth()->user()->role === 'mhs')
+                     <flux:navlist.item icon="home" :href="route('mhs.dashboard')" :current="request()->routeIs('mhs.dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('mhs.matakuliah')" :current="request()->routeIs('mhs.matakuliah')" wire:navigate>{{ __('Mata Kuliah') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('mhs.krs')" :current="request()->routeIs('mhs.krs')" wire:navigate>{{ __('KRS') }}</flux:navlist.item>
+                     @endif
                 </flux:navlist.group>
             </flux:navlist>
+
+            
 
             <flux:spacer />
 

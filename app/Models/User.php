@@ -59,4 +59,15 @@ class User extends Authenticatable
             ->map(fn ($word) => Str::substr($word, 0, 1))
             ->implode('');
     }
+
+    public function isAdmin(): bool
+    {
+    return $this->role === 'admin';
+    }
+
+public function isMahasiswa(): bool
+    {
+    return $this->role === 'mhs';
+    }
+
 }

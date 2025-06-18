@@ -59,10 +59,6 @@
         {{ $fakultas->links('pagination::tailwind') }}
     </div>
 
-    <flux:modal.trigger name="delete-fakultas">
-    <flux:button variant="danger">Delete</flux:button>
-</flux:modal.trigger>
-
 <flux:modal name="delete-fakultas" class="min-w-[22rem]">
     <div class="space-y-6">
         <div>

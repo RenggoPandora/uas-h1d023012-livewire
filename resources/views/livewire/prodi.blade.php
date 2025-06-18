@@ -9,20 +9,22 @@
     </flux:modal.trigger>
 
     {{-- Success Alert --}}
-    @session('success')
-        <div
-            x-data="{ show: true }"
-            x-show="show"
-            x-init="setTimeout(() => show = false, 2500)"
-            class="fixed top-5 right-5 bg-green-500 dark:bg-green-600 text-white py-2 px-4 rounded shadow-md transition-opacity"
-            role="alert"
-        >
-            <p>{{ $value }}</p>
-        </div>
-    @endsession
+    @if (session()->has('success'))
+    <div
+        x-data="{ show: true }"
+        x-show="show"
+        x-init="setTimeout(() => show = false, 2500)"
+        class="fixed top-5 right-5 bg-green-500 dark:bg-green-600 text-white py-2 px-4 rounded shadow-md transition-opacity"
+        role="alert"
+    >
+        <p>{{ session('success') }}</p>
+    </div>
+@endif
 
     {{-- Livewire Modal --}}
     <livewire:create-prodi />
+    <livewire:edit-prodi />
+
 
     {{-- Table --}}
     <div class="overflow-x-auto mt-6 rounded-lg shadow ring-1 ring-black/10 dark:ring-white/10">
@@ -42,6 +44,7 @@
                         <td class="px-4 py-3">{{ $item->nama_prod }}</td>
                         <td class="px-4 py-3">{{ $item->fakultas->nama_fak ?? '-' }}</td>
                         <td class="px-4 py-3 text-center space-x-2">
+                            <flux:button size="sm" variant="primary" wire:click="edit({{ $item->id }})">Edit</flux:button>
                             <flux:button size="sm" variant="danger" wire:click="delete({{ $item->id }})">Delete</flux:button>
                         </td>
                     </tr>
@@ -78,8 +81,6 @@
                 <flux:modal.close>
                     <flux:button variant="ghost">Cancel</flux:button>
                 </flux:modal.close>
-
-                <flux:button type="submit" variant="danger" wire:click="deleteProdi()">Delete</flux:button>
             </div>
         </div>
     </flux:modal>

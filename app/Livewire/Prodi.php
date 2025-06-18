@@ -36,7 +36,6 @@ class Prodi extends Component
            $this->redirectRoute('prodi');
     }
 
-    protected $listeners = ['editProdi' => 'setProdi'];
 
     public function edit($id)
 {

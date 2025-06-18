@@ -37,14 +37,12 @@ class EditProdi extends Component
         $prodi-> nama_prod = $this->nama_prod;
         $prodi-> fakultas_id = $this->fakultas_id;
         $prodi->save();
-        
+
         Flux::modal('edit-prodi')->close();
         session()->flash('success', 'Prodi berhasil diperbarui');
         $this->redirectRoute('prodi');
         
     }
-    
-    protected $listeners = ['editProdi' => 'setProdi'];
 
     public function mount()
     {

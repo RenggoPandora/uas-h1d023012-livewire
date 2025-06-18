@@ -14,6 +14,20 @@
             <flux:navbar class="-mb-px max-lg:hidden">
                 <flux:navbar.item icon="layout-grid" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                     {{ __('Dashboard') }}
+                    <flux:navbar.item icon="layout-grid" :href="route('fakultas')" :current="request()->routeIs('fakultas')" wire:navigate>
+                    {{ __('Fakultas') }}
+                </flux:navbar.item>
+                <flux:navbar.item icon="layout-grid" :href="route('prodi')" :current="request()->routeIs('prodi')" wire:navigate>
+                    {{ __('Prodi') }}
+                </flux:navbar.item>
+                <flux:navbar.item icon="layout-grid" :href="route('matakuliah')" :current="request()->routeIs('Mata Kuliah')" wire:navigate>
+                    {{ __('Mata Kuliah') }}
+                </flux:navbar.item>
+                <flux:navbar.item icon="layout-grid" :href="route('mahasiswa')" :current="request()->routeIs('mahasiswa')" wire:navigate>
+                    {{ __('Mahasiswa') }}
+                </flux:navbar.item>
+                <flux:navbar.item icon="layout-grid" :href="route('krs')" :current="request()->routeIs('krs')" wire:navigate>
+                    {{ __('KRS') }}
                 </flux:navbar.item>
             </flux:navbar>
 
@@ -100,6 +114,21 @@
                 <flux:navlist.group :heading="__('Platform')">
                     <flux:navlist.item icon="layout-grid" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                     {{ __('Dashboard') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="layout-grid" :href="route('fakultas')" :current="request()->routeIs('fakultas')" wire:navigate>
+                    {{ __('Fakultas') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="layout-grid" :href="route('prodi')" :current="request()->routeIs('prodi')" wire:navigate>
+                    {{ __('Prodi') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="layout-grid" :href="route('matakuliah')" :current="request()->routeIs('matakuliah')" wire:navigate>
+                    {{ __('Mata Kuliah') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="layout-grid" :href="route('mahasiswa')" :current="request()->routeIs('mahasiswa')" wire:navigate>
+                    {{ __('Mahasiswa') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="layout-grid" :href="route('krs')" :current="request()->routeIs('krs')" wire:navigate>
+                    {{ __('KRS') }}
                     </flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>

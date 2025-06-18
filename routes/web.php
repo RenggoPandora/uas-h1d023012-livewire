@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Http\Middleware\RoleMiddleware;
+use App\Livewire\Fakultas;
+use App\Livewire\Krs;
+use App\Livewire\Mahasiswa;
+use App\Livewire\Matakuliah;
+use App\Livewire\Prodi;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +29,11 @@ Route::middleware(['auth', 'verified', \App\Http\Middleware\RoleMiddleware::clas
     Route::view('dashboard', 'dashboard')->name('dashboard');
 
     // Admin Subpages
-    Route::view('dashboard/prodi', 'prodi')->name('prodi');
-    Route::view('dashboard/fakultas', 'fakultas')->name('fakultas');
-    Route::view('dashboard/matakuliah', 'matakuliah')->name('matakuliah');
-    Route::view('dashboard/mahasiswa', 'mahasiswa')->name('mahasiswa');
-    Route::view('dashboard/krs', 'krs')->name('krs');
+    Route::get('dashboard/prodi', Prodi::class)->name('prodi');
+    Route::get('dashboard/fakultas', Fakultas::class)->name('fakultas');
+    Route::get('dashboard/matakuliah', Matakuliah::class)->name('matakuliah');
+    Route::get('dashoard/mahasiswa', Mahasiswa::class)->name('mahasiswa');
+    Route::get('dashboard/krs', Krs::class)->name('krs');
 });
 
 /*

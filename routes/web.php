@@ -8,6 +8,8 @@ use App\Livewire\Krs;
 use App\Livewire\Mahasiswa;
 use App\Livewire\Matakuliah;
 use App\Livewire\Prodi;
+use Illuminate\Support\Facades\Log;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +64,12 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/password', 'settings.password')->name('settings.password');
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
+
+Route::get('/logtest', function () {
+    Log::info('Coba log jalan!');
+    return 'Log ditulis';
+});
+
 
 /*
 |--------------------------------------------------------------------------

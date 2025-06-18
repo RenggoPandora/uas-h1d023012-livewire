@@ -23,7 +23,6 @@
 
     {{-- Livewire Modal --}}
     <livewire:create-fakultas />
-    <livewire:edit-fakultas />
 
     {{-- Table --}}
     <div class="overflow-x-auto mt-6 rounded-lg shadow ring-1 ring-black/10 dark:ring-white/10">
@@ -41,8 +40,7 @@
                         <td class="px-4 py-3">{{ $fakultas->firstItem() + $index }}</td>
                         <td class="px-4 py-3">{{ $item->nama_fak }}</td>
                         <td class="px-4 py-3 text-center space-x-2">
-                            <flux:button wire:click="edit({{ $item->id }})" size="sm">Edit</flux:button>
-                            <flux:button size="sm" variant="danger">Delete</flux:button>
+                            <flux:button size="sm" variant="danger" wire:click="delete({{ $item->id }})">Delete</flux:button>
                         </td>
                     </tr>
                 @empty
@@ -60,4 +58,32 @@
     <div class="mt-6 flex justify-end">
         {{ $fakultas->links('pagination::tailwind') }}
     </div>
+
+    <flux:modal.trigger name="delete-fakultas">
+    <flux:button variant="danger">Delete</flux:button>
+</flux:modal.trigger>
+
+<flux:modal name="delete-fakultas" class="min-w-[22rem]">
+    <div class="space-y-6">
+        <div>
+            <flux:heading size="lg">Delete fakultas?</flux:heading>
+
+            <flux:text class="mt-2">
+                <p>You're about to delete this fakultas.</p>
+                <p>This action cannot be reversed.</p>
+            </flux:text>
+        </div>
+
+        <div class="flex gap-2">
+            <flux:spacer />
+
+            <flux:modal.close>
+                <flux:button variant="ghost">Cancel</flux:button>
+            </flux:modal.close>
+
+            <flux:button type="submit" variant="danger" wire:click="deleteFakultas()">Delete project</flux:button>
+        </div>
+    </div>
+</flux:modal>
+
 </div>

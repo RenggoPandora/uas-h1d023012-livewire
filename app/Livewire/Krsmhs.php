@@ -17,6 +17,7 @@ class Krsmhs extends Component
     public $totalSks = 0;
     public $semester;
 
+    
    public function mount()
 {
     $mahasiswa = Mahasiswa::where('email', Auth::user()->email)->firstOrFail();

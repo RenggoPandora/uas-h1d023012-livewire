@@ -5,8 +5,10 @@ use Livewire\Volt\Volt;
 use App\Http\Middleware\RoleMiddleware;
 use App\Livewire\Fakultas;
 use App\Livewire\Krs;
+use App\Livewire\Krsmhs;
 use App\Livewire\Mahasiswa;
 use App\Livewire\Matakuliah;
+use App\Livewire\Matakuliahmhs;
 use App\Livewire\Prodi;
 use Illuminate\Support\Facades\Log;
 
@@ -45,10 +47,11 @@ Route::middleware(['auth', 'verified', \App\Http\Middleware\RoleMiddleware::clas
 */
 
 Route::middleware(['auth', 'verified', \App\Http\Middleware\RoleMiddleware::class.':mhs'])->group(function () {
-    Route::view('mhs/dashboard', 'mhs.dashboard')->name('mhs.dashboard');
+    Route::view('home', 'home')->name('home');
 
-    Route::view('mhs/dashboard/matakuliah', 'mhs.matakuliah')->name('mhs.matakuliah');
-    Route::view('mhs/dashboard/krs', 'mhs.krs')->name('mhs.krs');
+    // Mhs Subpages
+    Route::get('home/matakuliah', Matakuliahmhs::class)->name('matakuliahmhs');
+    Route::get('home/krs', Krsmhs::class)->name('krsmhs');
 });
 
 /*

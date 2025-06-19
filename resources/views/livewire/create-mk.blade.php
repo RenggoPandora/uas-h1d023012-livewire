@@ -9,6 +9,7 @@
             <flux:input label="Kode" wire:model.defer="kode" placeholder="Contoh: IF101" />
             <flux:input label="Nama Matakuliah" wire:model.defer="nama_mk" placeholder="Contoh: Struktur Data" />
             <flux:input label="SKS" type="number" wire:model.defer="sks" />
+            <flux:input label="Semester" type="number" wire:model.defer="semester" />
             <flux:select label="Tipe" wire:model.defer="tipe">
                 <option value="">Pilih Tipe</option>
                 <option value="wajib">Wajib</option>

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('mahasiswa_id')->constrained('mahasiswa')->onDelete('cascade');
             $table->foreignId('matakuliah_id')->constrained('matakuliah')->onDelete('cascade');
             $table->integer('semester');
-            $table->enum('status',['pending', 'disetujui', 'ditolak'])->default('pending');
             $table->timestamps();
         });
     }

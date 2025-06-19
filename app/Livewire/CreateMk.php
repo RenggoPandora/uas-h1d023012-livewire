@@ -8,7 +8,7 @@ use Flux\Flux;
 
 class CreateMk extends Component
 {
-    public $kode, $nama_mk, $sks, $tipe;
+    public $kode, $nama_mk, $sks, $tipe, $semester;
 
     public function store()
     {
@@ -16,6 +16,7 @@ class CreateMk extends Component
             'kode' => 'required|string|unique:matakuliah,kode',
             'nama_mk' => 'required|string',
             'sks' => 'required|integer|min:1|max:6',
+            'semester' => 'required|integer|min:1|max:14',
             'tipe' => 'required|in:wajib,pilihan',
         ]);
 
@@ -23,6 +24,7 @@ class CreateMk extends Component
             'kode' => $this->kode,
             'nama_mk' => $this->nama_mk,
             'sks' => $this->sks,
+            'semester' => $this->semester,
             'tipe' => $this->tipe,
         ]);
 

@@ -23,9 +23,9 @@
                      @endif
 
                      @if(auth()->user()->role === 'mhs')
-                     <flux:navlist.item icon="home" :href="route('mhs.dashboard')" :current="request()->routeIs('mhs.dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('mhs.matakuliah')" :current="request()->routeIs('mhs.matakuliah')" wire:navigate>{{ __('Mata Kuliah') }}</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('mhs.krs')" :current="request()->routeIs('mhs.krs')" wire:navigate>{{ __('KRS') }}</flux:navlist.item>
+                     <flux:navlist.item icon="home" :href="route('home')" :current="request()->routeIs('home')" wire:navigate>{{ __('Home') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('matakuliahmhs')" :current="request()->routeIs('matakuliahmhs')" wire:navigate>{{ __('Mata Kuliah Saya') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('krsmhs')" :current="request()->routeIs('krsmhs')" wire:navigate>{{ __('Ajukan KRS') }}</flux:navlist.item>
                      @endif
                 </flux:navlist.group>
             </flux:navlist>

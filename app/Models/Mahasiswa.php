@@ -30,12 +30,25 @@ class Mahasiswa extends Model
         return $this->hasMany(Krs::class);
     }
 
+    public function getTotalSksAttribute()
+{
+    // Pastikan relasi KRS dan Matakuliah ada
+    if ($this->krs->isEmpty()) {
+        return null;
+    }
+
+    return $this->krs->sum(function ($krs) {
+        return $krs->matakuliah->sks ?? 0;
+    });
+}
+
+
     public function getSemesterAttribute(): int
-    {
-    $tanggalMasuk = Carbon::parse($this->tanggal_masuk);
+{
+    $tanggalMasuk = Carbon::parse($this->tanggal_masuk_mhs);
     $now = Carbon::now();
 
     $diffInMonths = $tanggalMasuk->diffInMonths($now);
-    return intdiv($diffInMonths, 6) + 1; // semester tiap 6 bulan
-    }
+    return intdiv($diffInMonths, 6) + 1; // 1 semester tiap 6 bulan
+}
 }

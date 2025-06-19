@@ -11,8 +11,13 @@ class FakultasSeeder extends Seeder
     {
         Fakultas::insert([
             ['nama_fak' => 'Fakultas Teknik'],
-            ['nama_fak' => 'Fakultas Ekonomi'],
-            ['nama_fak' => 'Fakultas Ilmu Komputer'],
+            ['nama_fak' => 'Fakultas Ekonomi dan Bisnis'],
+            ['nama_fak' => 'Fakultas Kedokteran'],
+            ['nama_fak' => 'Fakultas Ilmu Sosial dan Politik'],
+            ['nama_fak' => 'Fakultas Ilmu Kesehatan'],
+            ['nama_fak' => 'Fakultas Biologi'],
+            ['nama_fak' => 'Fakultas Perikanan'],
+            ['nama_fak' => 'Fakultas Matematika dan Ilmu Pengetahuan Alam'],
         ]);
     }
 }

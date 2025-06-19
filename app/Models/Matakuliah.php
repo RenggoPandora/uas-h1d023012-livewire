@@ -13,5 +13,6 @@ class Matakuliah extends Model
         'nama_mk',
         'sks',
         'tipe',
+        'semester',
     ];
 }

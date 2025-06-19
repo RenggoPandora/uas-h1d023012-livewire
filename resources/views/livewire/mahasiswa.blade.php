@@ -29,6 +29,7 @@
                     <th class="px-4 py-3">Nama</th>
                     <th class="px-4 py-3">Email</th>
                     <th class="px-4 py-3">Prodi</th>
+                    <th class="px-4 py-3">Total SKS</th>
                     <th class="px-4 py-3">Status</th>
                     <th class="px-4 py-3 text-center">Aksi</th>
                 </tr>
@@ -41,6 +42,13 @@
                     <td class="px-4 py-3">{{ $mhs->nama_mhs }}</td>
                     <td class="px-4 py-3">{{ $mhs->email }}</td>
                     <td class="px-4 py-3">{{ $mhs->prodi->nama_prod ?? '-' }}</td>
+                    <td class="px-4 py-3">
+                        @if ($mhs->total_sks === null)
+                            <span class="text-gray-500 italic">Belum mengisi KRS</span>
+                        @else
+                            {{ $mhs->total_sks }} SKS
+                        @endif
+                    </td>
                     <td class="px-4 py-3">{{ ucfirst($mhs->status) }}</td>
                     <td class="px-4 py-3 text-center space-x-2">
                         <flux:button size="sm" variant="primary" wire:click="edit({{ $mhs->id }})">Edit</flux:button>

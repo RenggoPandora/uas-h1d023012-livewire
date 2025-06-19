@@ -28,6 +28,7 @@
                     <th class="px-4 py-3">Kode</th>
                     <th class="px-4 py-3">Nama</th>
                     <th class="px-4 py-3">SKS</th>
+                    <th class="px-4 py-3">Semester</th>
                     <th class="px-4 py-3">Tipe</th>
                     <th class="px-4 py-3 text-center">Aksi</th>
                 </tr>
@@ -39,6 +40,7 @@
                     <td class="px-4 py-3">{{ $mk->kode }}</td>
                     <td class="px-4 py-3">{{ $mk->nama_mk }}</td>
                     <td class="px-4 py-3">{{ $mk->sks }}</td>
+                    <td class="px-4 py-3">{{ $mk->semester }}</td>
                     <td class="px-4 py-3 capitalize">{{ $mk->tipe }}</td>
                     <td class="px-4 py-3 text-center space-x-2">
                         <flux:button size="sm" variant="primary" wire:click="edit({{ $mk->id }})">Edit</flux:button>

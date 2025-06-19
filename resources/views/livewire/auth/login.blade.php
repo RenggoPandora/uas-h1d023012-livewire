@@ -44,7 +44,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
 
         $this->redirectIntended(
             default: $user->role === 'mhs'
-                ? route('mhs.dashboard', absolute: false)
+                ? route('home', absolute: false)
                 : route('dashboard', absolute: false),
             navigate: true
         );
